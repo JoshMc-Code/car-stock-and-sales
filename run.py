@@ -20,8 +20,10 @@ result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!A1:G4").execute()
 values = result.get('values', [])
 
+stock_input = input("Add stock for Toyota, Nissan, Porsche, Ford, Mitsubishi and Honda in the format 1,2,3,4,5,6 : ")
+aoa = [[stock_input]]
 
-aoa = [["1","2","3","4","5","6"]]
+print(aoa)
 
 request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!B2:G2", valueInputOption="USER_ENTERED", body={"values":aoa}).execute()
