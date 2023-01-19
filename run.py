@@ -20,6 +20,11 @@ result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!A1:G4").execute()
 values = result.get('values', [])
 
-request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID, range=range_, valueInputOption=value_input_option, body=value_range_body)
 
-print(values)
+aoa = [["1","2","3","4","5","6"]]
+
+request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="sales!B2:G2", valueInputOption="USER_ENTERED", body={"values":aoa}).execute()
+response = request
+
+print(response)
