@@ -12,14 +12,14 @@ from googleapiclient.errors import HttpError
 
 from google.oauth2 import service_account
 
-SCOPES = ['https://www.googleapis.com/auth/sqlservice.admin']
-SERVICE_ACCOUNT_FILE = '/path/to/service.json'
 
+SERVICE_ACCOUNT_FILE = 'keys.json'
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 credentials = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
 # If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+
 
 # The ID and range of a sample spreadsheet.
 SAMPLE_SPREADSHEET_ID = '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms'
