@@ -18,5 +18,5 @@ service = build('sheets', 'v4', credentials=creds)
 sheet = service.spreadsheets()
 result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!A1:G4").execute()
-#values = result.get('values', [])
-print(result)
+values = result.get('values', [])
+print(values)
