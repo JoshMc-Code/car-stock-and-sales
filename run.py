@@ -14,7 +14,7 @@ from google.oauth2 import service_account
 
 
 SERVICE_ACCOUNT_FILE = 'keys.json'
-SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
+SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 credentials = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 
