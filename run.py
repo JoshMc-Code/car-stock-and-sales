@@ -8,6 +8,16 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+
+
+from google.oauth2 import service_account
+
+SCOPES = ['https://www.googleapis.com/auth/sqlservice.admin']
+SERVICE_ACCOUNT_FILE = '/path/to/service.json'
+
+credentials = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
