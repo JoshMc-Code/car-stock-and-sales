@@ -22,14 +22,13 @@ creds = service_account.Credentials.from_service_account_file(
 
 # The ID of a spreadsheet.
 SAMPLE_SPREADSHEET_ID = '1o8OyfZbM1hLk01hRgANO1dghs326qD_oEqbYpF4J8tU'
-  
 
 service = build('sheets', 'v4', credentials=creds)
 
 # Call the Sheets API
 sheet = service.spreadsheets()
 result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range=SAMPLE_RANGE_NAME).execute()
+                            range="sales!A1:G4 ,orders!A1:G2").execute()
 values = result.get('values', [])
 
 if not values:
