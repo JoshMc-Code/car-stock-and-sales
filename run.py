@@ -17,6 +17,6 @@ service = build('sheets', 'v4', credentials=creds)
 # Call the Sheets API
 sheet = service.spreadsheets()
 result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="sales!A1:G4 ,orders!A1:G2").execute()
+                            range="sales!A1:G4").execute()
 #values = result.get('values', [])
 print(result)
