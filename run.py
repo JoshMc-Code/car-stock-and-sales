@@ -49,3 +49,7 @@ eom_stock = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
 
 eom_values = eom_stock.get('values', [])
 print(eom_values)
+
+eom_toyota = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="sales!B4").execute()
+eom_toyota_values = eom_toyota.get('values')
