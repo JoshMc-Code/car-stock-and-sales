@@ -95,31 +95,44 @@ honda_int_version = int(honda_string_version)
 print(toyota_int_version, nissan_int_version, porsche_int_version, ford_int_version, mitsu_int_version, honda_int_version)
 
 request_toyota = [[int(sale_toyota) - toyota_int_version]]
+request_toyota_int = int(sale_toyota) - toyota_int_version
 order_toyota = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="orders!B2", valueInputOption="USER_ENTERED", body={"values":request_toyota}).execute()
+                            range="orders!B2", valueInputOption="USER_ENTERED", body={"values": request_toyota}).execute()
 print(request_toyota)
 
 request_nissan = [[int(sale_nissan) - nissan_int_version]]
+request_nissan_int = int(sale_nissan) - nissan_int_version
 order_nissan = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="orders!C2", valueInputOption="USER_ENTERED", body={"values":request_nissan}).execute()
+                            range="orders!C2", valueInputOption="USER_ENTERED", body={"values": request_nissan}).execute()
 print(request_nissan)
 
 request_porsche = [[int(sale_porsche) - porsche_int_version]]
+request_porsche_int = int(sale_porsche) - porsche_int_version
 order_porsche = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="orders!D2", valueInputOption="USER_ENTERED", body={"values":request_porsche}).execute()
+                            range="orders!D2", valueInputOption="USER_ENTERED", body={"values": request_porsche}).execute()
 print(request_porsche)
 
 request_ford = [[int(sale_ford) - ford_int_version]]
+request_ford_int = int(sale_ford) - ford_int_version
 order_ford = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="orders!E2", valueInputOption="USER_ENTERED", body={"values":request_ford}).execute()
+                            range="orders!E2", valueInputOption="USER_ENTERED", body={"values": request_ford}).execute()
 print(request_ford)
 
 request_mitsu = [[int(sale_mitsu) - mitsu_int_version]]
+request_mitsu_int = int(sale_mitsu) - mitsu_int_version
 order_mitsu = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="orders!F2", valueInputOption="USER_ENTERED", body={"values":request_mitsu}).execute()
+                            range="orders!F2", valueInputOption="USER_ENTERED", body={"values": request_mitsu}).execute()
 print(request_mitsu)
 
 request_honda = [[int(sale_honda) - honda_int_version]]
+request_honda_int = int(sale_honda) - honda_int_version
 order_honda = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="orders!G2", valueInputOption="USER_ENTERED", body={"values":request_honda}).execute()
+                            range="orders!G2", valueInputOption="USER_ENTERED", body={"values": request_honda}).execute()
 print(request_honda)
+
+order_list = (request_toyota_int, request_nissan_int, request_porsche_int, request_ford_int, request_mitsu_int, request_honda_int)
+
+order_update = [order_list]
+
+order_sheet = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="orders!B2", valueInputOption="USER_ENTERED", body={"values": order_update}).execute()
