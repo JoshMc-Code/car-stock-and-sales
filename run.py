@@ -26,7 +26,7 @@ st_porsche = input("Add stock for Porsche: ")
 st_ford = input("Add stock for Ford: ")
 st_mitsu = input("Add stock for Mitsubishi: ")
 st_honda = input("Add stock for Honda: ")
-st_update = [[st_toyota,st_nissan,st_porsche,st_ford,st_mitsu,st_honda]]
+st_update = [[st_toyota, st_nissan, st_porsche, st_ford, st_mitsu, st_honda]]
 
 print(st_update)
 request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
@@ -38,7 +38,7 @@ sale_porsche = input("Add sales data for Porsche: ")
 sale_ford = input("Add sales data for Ford: ")
 sale_mitsu = input("Add sales data for Mitsubishi: ")
 sale_honda = input("Add sales data for Honda: ")
-sale_update = [[sale_toyota,sale_nissan,sale_porsche,sale_ford,sale_mitsu,sale_honda]]
+sale_update = [[sale_toyota, sale_nissan, sale_porsche, sale_ford, sale_mitsu, sale_honda]]
 
 print(sale_update)
 request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
@@ -92,4 +92,4 @@ honda_lists = eom_honda_values
 honda_string_version = ''.join([''.join(map(str, sublist)) for sublist in honda_lists])
 honda_int_version = int(honda_string_version)
 
-print(toyota_int_version,nissan_int_version,porsche_int_version,ford_int_version,mitsu_int_version,honda_int_version)
+print(toyota_int_version, nissan_int_version, porsche_int_version, ford_int_version, mitsu_int_version, honda_int_version)
