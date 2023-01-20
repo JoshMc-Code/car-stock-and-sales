@@ -117,3 +117,7 @@ order_push = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="orders!B2", valueInputOption="USER_ENTERED", body={"values": [order_sheet]}).execute()
 
 print("Spreadsheets updated. Order sheet generated and ready to view.")
+
+import webbrowser
+
+webbrowser.open_new("https://docs.google.com/spreadsheets/d/1o8OyfZbM1hLk01hRgANO1dghs326qD_oEqbYpF4J8tU/edit#gid=1256013576")
