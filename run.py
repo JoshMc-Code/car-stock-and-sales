@@ -53,3 +53,23 @@ print(eom_values)
 eom_toyota = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!B4").execute()
 eom_toyota_values = eom_toyota.get('values')
+
+eom_nissan = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="sales!C4").execute()
+eom_nissan_values = eom_nissan.get('values')
+
+eom_porsche = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="sales!D4").execute()
+eom_porsche_values = eom_porsche.get('values')
+
+eom_ford = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="sales!E4").execute()
+eom_ford_values = eom_ford.get('values')
+
+eom_mitsu = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="sales!F4").execute()
+eom_mitsu_values = eom_mitsu.get('values')
+
+eom_honda = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="sales!G4").execute()
+eom_honda_values = eom_honda.get('values')
