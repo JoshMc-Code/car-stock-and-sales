@@ -93,3 +93,8 @@ honda_string_version = ''.join([''.join(map(str, sublist)) for sublist in honda_
 honda_int_version = int(honda_string_version)
 
 print(toyota_int_version, nissan_int_version, porsche_int_version, ford_int_version, mitsu_int_version, honda_int_version)
+
+request_toyota = [[int(sale_toyota) - toyota_int_version]]
+order_toyota = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="orders!B2", valueInputOption="USER_ENTERED", body={"values":request_toyota}).execute()
+print(request_toyota)
