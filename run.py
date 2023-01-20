@@ -43,3 +43,9 @@ sale_update = [[sale_toyota,sale_nissan,sale_porsche,sale_ford,sale_mitsu,sale_h
 print(sale_update)
 request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!B3:G3", valueInputOption="USER_ENTERED", body={"values":sale_update}).execute()
+
+eom_stock = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="sales!A4:G4").execute()
+
+eom_values = eom_stock.get('values', [])
+print(eom_values)
