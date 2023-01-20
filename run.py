@@ -28,7 +28,6 @@ st_mitsu = input("Add stock for Mitsubishi: ")
 st_honda = input("Add stock for Honda: ")
 st_update = [[st_toyota, st_nissan, st_porsche, st_ford, st_mitsu, st_honda]]
 
-print(st_update)
 request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!B2:G2", valueInputOption="USER_ENTERED", body={"values":st_update}).execute()
 
@@ -40,7 +39,6 @@ sale_mitsu = input("Add sales data for Mitsubishi: ")
 sale_honda = input("Add sales data for Honda: ")
 sale_update = [[sale_toyota, sale_nissan, sale_porsche, sale_ford, sale_mitsu, sale_honda]]
 
-print(sale_update)
 request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!B3:G3", valueInputOption="USER_ENTERED", body={"values":sale_update}).execute()
 
@@ -48,7 +46,6 @@ eom_stock = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!A4:G4").execute()
 
 eom_values = eom_stock.get('values', [])
-print(eom_values)
 
 eom_toyota = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!B4").execute()
@@ -92,47 +89,31 @@ honda_lists = eom_honda_values
 honda_string_version = ''.join([''.join(map(str, sublist)) for sublist in honda_lists])
 honda_int_version = int(honda_string_version)
 
-print(toyota_int_version, nissan_int_version, porsche_int_version, ford_int_version, mitsu_int_version, honda_int_version)
-
 request_toyota = [[int(sale_toyota) - toyota_int_version]]
 request_toyota_int = int(sale_toyota) - toyota_int_version
-
-print(request_toyota)
 
 request_nissan = [[int(sale_nissan) - nissan_int_version]]
 request_nissan_int = int(sale_nissan) - nissan_int_version
 
-print(request_nissan)
-
 request_porsche = [[int(sale_porsche) - porsche_int_version]]
 request_porsche_int = int(sale_porsche) - porsche_int_version
-
-print(request_porsche)
 
 request_ford = [[int(sale_ford) - ford_int_version]]
 request_ford_int = int(sale_ford) - ford_int_version
 
-print(request_ford)
-
 request_mitsu = [[int(sale_mitsu) - mitsu_int_version]]
 request_mitsu_int = int(sale_mitsu) - mitsu_int_version
 
-print(request_mitsu)
-
 request_honda = [[int(sale_honda) - honda_int_version]]
 request_honda_int = int(sale_honda) - honda_int_version
-
-print(request_honda)
 
 order_list = (request_toyota_int, request_nissan_int, request_porsche_int, request_ford_int, request_mitsu_int, request_honda_int)
 
 order_update = [order_list]
 
-print(order_list)
-
 order_sheet = [0 if i < 0 else i for i in order_list]
-
-print(order_sheet)
 
 order_push = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="orders!B2", valueInputOption="USER_ENTERED", body={"values": [order_sheet]}).execute()
+
+print("Spreadsheets updated. Order sheet generated and ready to view.")
