@@ -128,5 +128,11 @@ order_list = (request_toyota_int, request_nissan_int, request_porsche_int, reque
 
 order_update = [order_list]
 
-order_sheet = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="orders!B2", valueInputOption="USER_ENTERED", body={"values": order_update}).execute()
+print(order_list)
+
+order_sheet = [0 if i < 0 else i for i in order_list]
+
+print(order_sheet)
+
+order_push = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
+                            range="orders!B2", valueInputOption="USER_ENTERED", body={"values": [order_sheet]}).execute()
