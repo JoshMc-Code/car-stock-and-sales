@@ -20,13 +20,18 @@ result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                             range="sales!A1:G4").execute()
 values = result.get('values', [])
 
-stock_input = input("Add stock for Toyota, Nissan, Porsche, Ford, Mitsubishi and Honda in the format 1,2,3,4,5,6 : ")
-aoa = [[stock_input]]
+st_toyota = input("Add stock for Toyota: ")
+st_nissan = input("Add stock for Nissan: ")
+st_porsche = input("Add stock for Porsche: ")
+st_ford = input("Add stock for Ford: ")
+st_mitsubishi = input("Add stock for Mitsubishi: ")
+st_honda = input("Add stock for Honda: ")
+st_update = [[st_toyota,st_nissan,st_porsche,st_ford,st_mitsubishi,st_honda]]
 
-print(aoa)
+print(st_update)
 
 request = sheet.values().update(spreadsheetId=SAMPLE_SPREADSHEET_ID,
-                            range="sales!B2:G2", valueInputOption="USER_ENTERED", body={"values":aoa}).execute()
+                            range="sales!B2:G2", valueInputOption="USER_ENTERED", body={"values":st_update}).execute()
 response = request
 
 print(response)
